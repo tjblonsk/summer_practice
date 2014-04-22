@@ -1,4 +1,4 @@
-class CodeTest
+class Question
 
   # Test # 1
   # Insertion sort is a simple sorting algorithm that
