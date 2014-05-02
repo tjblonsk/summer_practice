@@ -1,4 +1,4 @@
-class Question
+class Answer
 
   # Test # 1
   # Insertion sort is a simple sorting algorithm that
@@ -11,7 +11,29 @@ class Question
   # 2) What's the worst case scenario?
 
   def self.insertion_sort(items)
-
+    len = items.length
+    i = 0
+    if len > 1
+      while i <= len - 1
+        val = items[i]
+        n = i - 1
+        while n >= 0
+          #puts "current: #{val}, comp: #{items[n]}"
+          if val < items[n]
+            #puts "swap #{val} for #{items[n]}"
+            # swap
+            tmp = items[n]
+            items[n] = items[n+1]
+            items[n+1] = tmp
+          else
+            break
+          end
+          n -= 1
+        end
+        i += 1
+      end
+    end
+    return items
   end
 
 
@@ -26,7 +48,26 @@ class Question
   # 1) What's the efficiency of this algorithm?
 
   def self.bubble_sort(items)
-
+    if items.length > 0
+      while true
+        swapped = false
+        items.each_with_index do |num, i|
+          if i > 0
+            l = items[i-1]
+            r = items[i]
+            if r < l
+              # swap
+              tmp = items[i]
+              items[i] = items[i-1]
+              items[i-1] = tmp
+              swapped = true
+            end
+          end
+        end
+        break if !swapped
+      end
+    end
+    return items
   end
 
   # Test # 2
@@ -94,3 +135,4 @@ class Question
   end
 
 end
+
