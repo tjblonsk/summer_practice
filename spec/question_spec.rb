@@ -3,12 +3,60 @@ require 'question'
 
 describe "insertion sort" do
 
-  it "should sort the array in ascending order" do
+  it "should return an empty array if empty" do
+    Question.insertion_sort([]).should == []
+  end
 
+  it "should sort a 1 element array" do
+    Question.insertion_sort([1]).should == [1]
+  end
+
+  it "should sort a 2 element array" do
+    Question.insertion_sort([2,1]).should == [1,2]
+  end
+
+  it "should sort a 3 element array" do
+    Question.insertion_sort([2,3,1]).should == [1,2,3]
+  end
+
+  it "should sort an array with duplicate elements" do
+    Question.insertion_sort([2,3,2,3,1]).should == [1,2,2,3,3]
+  end
+
+  it "should sort this random array" do
     items = [18, 12, 4, 26, 1, 13, 15, 87, 23, 11, 8, 21, 27]
     Question.insertion_sort(items).should == [1, 4, 8, 11, 12, 13, 15, 18, 21, 23, 26, 27, 87]
-
   end
+
+end
+
+describe "bubble sort" do
+
+  it "should return an empty array if empty" do
+    Question.bubble_sort([]).should == []
+  end
+
+  it "should sort a 1 element array" do
+    Question.bubble_sort([1]).should == [1]
+  end
+
+  it "should sort a 2 element array" do
+    Question.bubble_sort([2,1]).should == [1,2]
+  end
+
+  it "should sort a 3 element array" do
+    Question.bubble_sort([2,3,1]).should == [1,2,3]
+  end
+
+  it "should sort an array with duplicate elements" do
+    Question.bubble_sort([2,3,2,3,1]).should == [1,2,2,3,3]
+  end
+
+  it "should sort this random array" do
+    items = [18, 12, 4, 26, 1, 13, 15, 87, 23, 11, 8, 21, 27]
+    Question.bubble_sort(items).should == [1, 4, 8, 11, 12, 13, 15, 18, 21, 23, 26, 27, 87]
+  end
+
 
 end
 
