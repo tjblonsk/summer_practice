@@ -26,7 +26,18 @@ class Question
   # 1) What's the efficiency of this algorithm?
 
   def self.bubble_sort(items)
-
+    items.each_with_index do |item, index|
+      i = item
+      if index > 0
+        if items[index] < items[index - 1]
+          items[index] = items[index - 1]
+          items[index - 1] = i
+          bubble_sort(items)
+        else
+          items
+        end
+      end
+    end
   end
 
   # Test # 2
